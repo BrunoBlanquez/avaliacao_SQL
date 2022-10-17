@@ -65,3 +65,13 @@ on m.idMarca = f.marcas_idMarca
 group by m.nomeMarca;
 
 select * from viewMarcasxFornecedorRight;
+
+################### VIEW 8 ####################
+create or replace view view5tables as
+select *
+from fornecedor f
+LEFT OUTER JOIN marcas m on f.marcas_idMarca = m.idMarca
+INNER JOIN produtos p using(marcas_idMarca)
+INNER JOIN carrinho_compras cc using(idProduto)
+INNER JOIN vendas v using(idCarrinho);
+select * from view5tables;

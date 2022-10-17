@@ -42,3 +42,6 @@ delete from vendas where idVenda = 2;
 insert into carrinho_compras(idProduto,dataCompra,precoTotal,quantidade) values(1, now(), 400, 5);
 update carrinho_compras set precoTotal = 50 where idCarrinho = 8;
 delete from carrinho_compras where idCarrinho = 8;
+
+alter table carrinho_compras add column idCliente int;
+alter table carrinho_compras add constraint fk_cliente foreign key (idCliente) references clientes(idCliente);
