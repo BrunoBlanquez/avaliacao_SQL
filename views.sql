@@ -74,4 +74,12 @@ LEFT OUTER JOIN marcas m on f.marcas_idMarca = m.idMarca
 INNER JOIN produtos p using(marcas_idMarca)
 INNER JOIN carrinho_compras cc using(idProduto)
 INNER JOIN vendas v using(idCarrinho);
+
 select * from view5tables;
+
+################### VIEW 9 ####################
+create or replace view viewDateFormat as
+select date_format(dataCompra, "%M %d %Y") as 'Data Formatada'
+from carrinho_compras;
+
+select * from viewDateFormat;
