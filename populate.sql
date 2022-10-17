@@ -29,19 +29,26 @@ delete from funcionarios where idFuncionarios = 9;
 ######### fornecedor #########
 insert into fornecedor(marcas_idMarca,nome) values(1, 'fornecedor 1'),(2, 'fornecedor 1'),(3, 'fornecedor 1'),(4, 'fornecedor 2'),(5, 'fornecedor 2'),(6, 'fornecedor 3'),(7, 'fornecedor 3');
 insert into fornecedor(marcas_idMarca,nome) values(1, 'fornecedor 1');
+
 update fornecedor set nome = 'TESTE' where idFornecedor = 8;
 delete from fornecedor where idFornecedor = 8;
 
 ######### VENDAS #########
 insert into vendas(idCarrinho,status) values(6, 'concluido');
-insert into vendas(idCarrinho,status) values(6, 'pendente');
 update vendas set status = 'concluido' where idVenda = 2;
 delete from vendas where idVenda = 2;
 
 ######### CARRINHO_COMPRAS #########
 insert into carrinho_compras(idProduto,dataCompra,precoTotal,quantidade) values(1, now(), 400, 5);
+call pAdicionaCarrinho(1, 5);
+call pAdicionaCarrinho(2, 5);
+call pAdicionaCarrinho(3, 15);
+call pAdicionaCarrinho(4, 5);
+call pAdicionaCarrinho(5, 5);
+call pAdicionaCarrinho(6, 15);
+call pAdicionaCarrinho(7, 25);
+call pAdicionaCarrinho(8, 5);
+call pAdicionaCarrinho(9, 5);
+call pAdicionaCarrinho(10, 5);
 update carrinho_compras set precoTotal = 50 where idCarrinho = 8;
 delete from carrinho_compras where idCarrinho = 8;
-
-alter table carrinho_compras add column idCliente int;
-alter table carrinho_compras add constraint fk_cliente foreign key (idCliente) references clientes(idCliente);
